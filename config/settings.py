@@ -16,10 +16,14 @@ SECRET_KEY = os.environ.get(
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG", "True").lower() == "false"
+DEBUG = os.getenv("DEBUG", "False").lower() == "true"
 
 ALLOWED_HOSTS = [
     "vornex-web-apps.up.railway.app",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://vornex-web-apps.up.railway.app",
 ]
 
 # Application definition
