@@ -7,7 +7,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
 
-    path("admin/", admin.site.urls),
+    path("vox-01-admin-web-apps/", admin.site.urls),
 
     path("", include("core.urls")),
 
