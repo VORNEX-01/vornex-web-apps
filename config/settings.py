@@ -16,7 +16,7 @@ SECRET_KEY = os.environ.get(
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG", "False").lower() == "true"
+DEBUG = os.getenv("DEBUG", "True").lower() == "false"
 
 ALLOWED_HOSTS = [
     "vornex-web-apps.up.railway.app",
