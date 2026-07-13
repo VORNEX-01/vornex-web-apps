@@ -1,0 +1,299 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{% if seo %}
+
+<title>
+{{ seo.title }}
+</title>
+
+
+<meta name="description"
+content="{{ seo.description }}">
+
+
+<meta name="keywords"
+content="{{ seo.keywords }}">
+
+
+{% if seo.favicon %}
+
+    <link rel="icon"
+    href="{{ seo.favicon.url }}">
+
+    <link rel="icon" href="{% static 'favicon.ico' %}">
+{% endif %}
+
+
+{% else %}
+
+<title>
+Vornex Web Apps
+</title>
+
+{% endif %}
+
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+</head>
+
+
+<body>
+
+
+
+<nav class="navbar">
+
+<div class="container navbar-container">
+
+
+<a href="/" class="logo">
+<img src="{% static 'images/logo.svg' %}">
+</a>
+
+
+<div class="nav-links" id="navLinks">
+
+<a href="/">
+خانه
+</a>
+
+<a href="#tools">
+وب اپ ها
+</a>
+
+<a href="#footer">
+ارتباط
+</a>
+
+
+{% if site_settings.instagram %}
+<a class="btn btn-outline instagram-btn"
+href="{{ site_settings.instagram }}"
+target="_blank">
+Instagram
+</a>
+{% endif %}
+
+
+</div>
+
+
+<button class="menu-toggle" id="menuToggle">
+
+<span></span>
+<span></span>
+<span></span>
+
+</button>
+
+
+</div>
+
+</nav>
+
+
+{% if announcement %}
+
+<div class="announcement">
+
+<span>
+🚀
+</span>
+
+<p>
+{{ announcement.title }}
+</p>
+
+<a href="{{ announcement.link }}">
+مشاهده →
+</a>
+
+</div>
+
+{% endif %}
+
+
+{% block content %}
+
+{% endblock %}
+
+
+
+
+
+<footer id="footer" class="footer">
+
+
+<div class="container footer-grid">
+
+
+
+<div>
+
+<h3>
+محصولات و اپلیکیشن‌های Vornex
+</h3>
+
+
+<p>
+وب‌اپ‌ها، ابزارها و بازی‌های کاربردی که برای شما سراحی شده تا لذت ببرید.🤍
+</p>
+
+</div>
+
+
+<div>
+
+<h3>
+وب اپلیکیشن ها
+</h3>
+
+
+{% for item in contents %}
+
+<a href="{{ item.url }}">
+{{ item.title }}
+</a>
+
+
+{% empty %}
+
+<p>
+بدون ابزار
+</p>
+
+{% endfor %}
+
+
+</div>
+
+
+
+
+
+<div>
+
+
+<h3>
+شبکه‌های اجتماعی
+</h3>
+
+
+
+<div class="socials">
+
+
+{% if site_settings.github %}
+
+<a href="{{ site_settings.github }}" target="_blank">
+
+<img src="{% static 'images/github.png' %}">
+
+<span>
+GitHub
+</span>
+
+</a>
+
+{% endif %}
+
+
+
+{% if site_settings.instagram %}
+
+<a href="{{ site_settings.instagram }}" target="_blank">
+
+<img src="{% static 'images/insta.png' %}">
+
+<span>
+Instagram
+</span>
+
+</a>
+
+{% endif %}
+
+
+
+{% if site_settings.telegram %}
+
+<a href="{{ site_settings.telegram }}" target="_blank">
+
+<img src="{% static 'images/telegram.png' %}">
+
+<span>
+Telegram
+</span>
+
+</a>
+
+{% endif %}
+
+
+
+{% if site_settings.linkedin %}
+
+<a href="{{ site_settings.linkedin }}" target="_blank">
+
+<img src="{% static 'images/linkdin.png' %}">
+
+<span>
+LinkedIn
+</span>
+
+</a>
+
+{% endif %}
+
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<div class="footer-bottom">
+
+<p>
+© 2026 Vornex Tools. تمامی حقوق محفوظ است.
+</p>
+
+<p>
+ساخته شده توسط
+<a href="{{ site_settings.website }}">
+Vornex
+</a>
+</p>
+
+</div>
+
+
+</footer>
+
+
+
+
+<script src="{% static 'js/main.js' %}"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="hero">
+
+    <div class="container">
+
+        <h1>
+            محصولات و اپلیکیشن‌های
+            <span>Vornex Tools</span>
+        </h1>
+
+        <p>
+            وب‌اپ‌ها، بازی‌ها و ابزارهای کاربردی که برای استفاده سریع طراحی شده‌اند.
+        </p>
+
+
+        <div class="hero-actions">
+
+            <a href="#tools" class="btn btn-primary">
+                وب اپ ها
+            </a>
+
+            <a href="{{ site_settings.website }}" class="btn btn-outline">
+                وب ‌سایت اصلی من
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section id="tools" class="tools">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2>
+                وب اپ ها
+            </h2>
+
+            <p>
+                وب اپ های فعال شده توسط مدیریت
+            </p>
+
+        </div>
+
+
+
+        <div class="tools-grid">
+
+
+            {% for item in contents %}
+
+
+            <div class="tool-card">
+
+
+            {% if item.icon %}
+
+            <img src="{{ item.icon }}" class="tool-icon">
+
+            {% endif %}
+
+
+
+            <span class="content-type">
+
+            {{ item.get_content_type_display }}
+
+            </span>
+
+
+
+            <h3>
+
+            {{ item.title }}
+
+            </h3>
+
+
+
+            <div class="tool-description">
+
+            {{ item.description }}
+
+            </div>
+
+
+
+            <a href="{{ item.url }}" target="_blank">
+
+            مشاهده →
+
+            </a>
+
+
+            </div>
+
+
+            {% empty %}
+
+
+            <p>
+                هنوز ابزاری اضافه نشده است.
+            </p>
+
+
+            {% endfor %}
+
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+{% endblock %}
