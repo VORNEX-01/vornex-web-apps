@@ -16,6 +16,7 @@ SECRET_KEY = 'django-insecure-h2x3+d=#=q0vzz#2_ydx1-p=t!i9e(s5s&@id&jlpwpp6w^%jz
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    os.environ.get("RAILWAY_PUBLIC_DOMAIN", ""),
     "localhost",
     "127.0.0.1",
 ]
