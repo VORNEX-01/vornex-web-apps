@@ -19,9 +19,7 @@ SECRET_KEY = os.environ.get(
 DEBUG = os.getenv("DEBUG", "False").lower() == "true"
 
 ALLOWED_HOSTS = [
-    os.environ.get("RAILWAY_PUBLIC_DOMAIN", ""),
-    "localhost",
-    "127.0.0.1",
+    "vornex-web-apps.up.railway.app",
 ]
 
 
