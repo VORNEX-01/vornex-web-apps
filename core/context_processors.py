@@ -1,6 +1,5 @@
 from .models import ContentItem, SiteSettings, Announcement
 
-
 def global_data(request):
 
     contents = ContentItem.objects.filter(
